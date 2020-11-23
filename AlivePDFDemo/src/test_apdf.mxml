@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="640" height="480" creationComplete="windowedapplication1_creationCompleteHandler(event)">
+	   <mx:Script>
+        <![CDATA[
+			import flash.sampler.NewObjectSample;
+			import flash.utils.ByteArray;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			import org.alivepdf.annotations.Annotation;
+			import org.alivepdf.annotations.AnnotationType;
+			import org.alivepdf.annotations.TextAnnotation;
+			import org.alivepdf.colors.CMYKColor;
+			import org.alivepdf.colors.RGBColor;
+			import org.alivepdf.colors.SpotColor;
+			import org.alivepdf.grid.Grid;
+			import org.alivepdf.grid.GridColumn;
+			import org.alivepdf.events.CharacterEvent;
+			import org.alivepdf.fonts.CodePage;
+			import org.alivepdf.fonts.CoreFont;
+			import org.alivepdf.fonts.EmbeddedFont;
+			import org.alivepdf.fonts.FontFamily;
+			import org.alivepdf.fonts.IFont;
+			import org.alivepdf.images.ColorSpace;
+			import org.alivepdf.layout.Align;
+			import org.alivepdf.layout.Mode;
+			import org.alivepdf.layout.Orientation;
+			import org.alivepdf.layout.Position;
+			import org.alivepdf.layout.Resize;
+			import org.alivepdf.layout.Size;
+			import org.alivepdf.layout.Unit;
+			import org.alivepdf.links.HTTPLink;
+			import org.alivepdf.links.Highlight;
+			import org.alivepdf.links.ILink;
+			import org.alivepdf.links.InternalLink;
+			import org.alivepdf.pages.Page;
+			import org.alivepdf.pdf.PDF;
+			import org.alivepdf.saving.Method;
+            
+            private var file:File;
+            private var b:ByteArray = new ByteArray();
+			
+			[Bindable]
+			private var dp:ArrayCollection = new ArrayCollection();
+			
+			[Embed( source="../assets/CCITT_1.TIF", mimeType="application/octet-stream" )]
+			private var imageStream:Class;
+			
+			[Embed( source="../assets/circle-01.gif", mimeType="application/octet-stream" )]
+			private var imageGIFStream:Class;
+			
+			[Embed( source="../assets/sample.jpg", mimeType="application/octet-stream" )]
+			private var imageBigStream:Class;
+			
+			[Embed( source="../assets/Capture it.ttf", mimeType="application/octet-stream" )]
+			private var fontStream:Class;
+			
+			[Embed( source="../assets/cap.afm", mimeType="application/octet-stream" )]
+			private var afmStream:Class;
+			
+			[Embed( source="../assets/GIDDYUP.TTF", mimeType="application/octet-stream" )]
+			private var fontStream2:Class;
+			
+			[Embed( source="../assets/giddyup.afm", mimeType="application/octet-stream" )]
+			private var afmStream2:Class;
+			
+			[Embed( source="../assets/LOVITZ__.TTF", mimeType="application/octet-stream" )]
+			private var fontStream3:Class;
+			
+			[Embed( source="../assets/lovitz.afm", mimeType="application/octet-stream" )]
+			private var afmStream3:Class;
+			
+			[Embed( source="../assets/MyriadWebPro.TTF", mimeType="application/octet-stream" )]
+			private var fontStream4:Class;
+			
+			[Embed( source="../assets/myriad.afm", mimeType="application/octet-stream" )]
+			private var afmStream4:Class;
+			
+			[Embed( source="../assets/calligra.TTF", mimeType="application/octet-stream" )]
+			private var fontStream5:Class;
+			
+			[Embed( source="../assets/calligra.afm", mimeType="application/octet-stream" )]
+			private var afmStream5:Class;
+			
+			[Embed( source="../assets/Officer Down.ttf", mimeType="application/octet-stream" )]
+			private var fontStream6:Class;
+			
+			[Embed( source="../assets/officer.afm", mimeType="application/octet-stream" )]
+			private var afmStream6:Class;
+			
+			[Embed( source="../assets/Barmeno-Regular.ttf", mimeType="application/octet-stream" )]
+			private var fontStream7:Class;
+			
+			[Embed( source="../assets/Barmeno-Regular.afm", mimeType="application/octet-stream" )]
+			private var afmStream7:Class;
+			
+			[Embed( source="../assets/top.ai", mimeType="application/octet-stream" )]
+			private var epsFile:Class;
+            
+            private function createPDF():void
+			{
+				var t:ByteArray = new fontStream();
+				
+            	var uf:IFont = new CoreFont ( FontFamily.ARIAL );
+				
+            	var p:PDF = new PDF( Orientation.PORTRAIT, Unit.MM, Size.A4 );
+				
+				var l:ILink = new InternalLink(2, 0);
+				
+				p.addPage();
+				
+				p.addImage( this );
+				
+				p.addPage();
+				
+				p.addImage( this, new Resize ( Mode.FIT_TO_PAGE, Position.CENTERED ) );
+				
+				p.addPage();
+				
+				p.addImage( this, new Resize ( Mode.FIT_TO_PAGE, Position.LEFT ) );
+				
+				p.addPage();
+				
+				p.addImage( this, new Resize ( Mode.FIT_TO_PAGE, Position.RIGHT ) );
+				
+				p.addPage();
+				
+				p.addImage( this, new Resize ( Mode.RESIZE_PAGE, Position.CENTERED ) );
+				
+				p.addPage();
+				
+				p.addImage( this, new Resize ( Mode.RESIZE_PAGE, Position.LEFT ) );
+				
+				p.addPage();
+				
+				p.addImage( this, new Resize ( Mode.RESIZE_PAGE, Position.RIGHT ) );
+				
+				p.addPage();
+				
+				p.addImage( this, null, 40, 0 );
+				
+				p.addPage();
+				
+				var msg:String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis elit ut urna malesuada sed porttitor odio vestibulum. Morbi egestas metus vitae urna consectetur sagittis. Aenean aliquam tincidunt velit a lacinia. Vestibulum tincidunt ante vel sem laoreet sed tempus risus ornare. Nunc ullamcorper sapien vel neque vulputate commodo. Nam faucibus neque eu libero venenatis euismod. Pellentesque ut est vitae tellus egestas consectetur. Praesent massa lacus, ultrices ut convallis vitae, tincidunt at tortor. Sed arcu risus, convallis ac fringilla at, egestas id tortor. Nam consectetur luctus mollis. Phasellus id dolor nibh, sed ultricies diam. Aliquam erat volutpat. Nulla erat lectus, vestibulum sed molestie nec, dignissim sed tellus. Sed fermentum quam id dolor porta vel tristique orci tristique. Nunc varius molestie bibendum. Curabitur in tortor eget mauris porttitor mollis. Proin a lacus mauris. Nullam dapibus nisi vitae justo eleifend ullamcorper. Maecenas dolor augue, bibendum quis mattis ut, posuere in tortor. Donec auctor dolor eget leo posuere fermentum. Curabitur tincidunt blandit venenatis. Praesent sagittis tristique ultricies. Quisque lobortis lacus non orci aliquam facilisis. Cras ut felis massa, a posuere nisi. Maecenas eget nibh ligula. Duis urna massa, dignissim non dapibus eget, mattis consequat dolor."				
+				
+				var ef:EmbeddedFont = new EmbeddedFont( new fontStream(), new afmStream(), CodePage.CP1252 );
+			
+				p.setFont( ef, 14 );
+				p.textStyle( new RGBColor(0x990000), 1 );
+				
+				p.writeText(12,msg);
+				
+				p.addPage();
+				
+				var ef2:EmbeddedFont = new EmbeddedFont( new fontStream2(), new afmStream2(), CodePage.CP1254 );
+				
+				p.setFont( ef2, 20 );
+				p.writeText(12, msg);
+				
+				p.addPage();
+				
+				var ef3:EmbeddedFont = new EmbeddedFont( new fontStream3(), new afmStream3(), CodePage.CP1254 );
+					
+				p.setFont( ef3, 28 );
+				p.writeText(12, msg);
+				
+				p.addPage();
+				
+				var ef4:EmbeddedFont = new EmbeddedFont( new fontStream4(), new afmStream4(), CodePage.CP1254 );
+			
+				p.setFont( ef4, 16 );
+				p.writeText(12, msg);
+				
+				p.addPage();
+				
+				var ef5:EmbeddedFont = new EmbeddedFont( new fontStream5(), new afmStream5(), CodePage.CP1252 );
+			
+				p.setFont( ef5, 16 );
+				p.writeText(12, msg);
+				
+				p.addPage();
+				
+				var ef6:EmbeddedFont = new EmbeddedFont( new fontStream6(), new afmStream6(), CodePage.CP1252 );
+		
+				p.setFont( ef6, 16 );
+				p.writeText(12, msg);
+				
+				p.addPage();
+				
+				var ef7:EmbeddedFont = new EmbeddedFont( new fontStream7(), new afmStream7(), CodePage.CP1252 );
+			
+				p.setFont( ef7, 16 );
+				p.writeText(12, msg);
+				
+				p.addPage();
+				
+				p.textStyle( new RGBColor(0x990000), 1 );
+				p.setFont( new CoreFont ( FontFamily.ARIAL ), 9);
+				
+				p.addPage();
+				
+				var link:InternalLink = new InternalLink (1, 0);
+				
+				p.addLink( 20, 20, 100, 100, link ); 
+				
+            	p.addPage();
+				p.addBookmark("Page 1", 0, 0, new RGBColor ( 0x990000 ) );
+				p.addBookmark("Page 1", 1, 0, new RGBColor ( 0x000000 ) );
+				
+				p.textStyle( new RGBColor(0x990000), 1 );
+				p.setFont(uf, 9);
+				
+				link = p.getCurrentInternalLink();
+				
+				p.writeFlashHtmlText(8, "Lorem Ipsum is simply dummy text of the çççàààààààààà é@@@@@ ùùù%%%%% €€€€€€ printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." +
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap <br/><br/>into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." +
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset <b>sheets containing</b> Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." +
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard <br /><br />dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." + 
+					"Lorem Ipsum is simply dummy text <b> hey salut </b><br /><br /> of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. <u>It has survived not only five centuries, but also the leap into electronic</u> typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." +
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into <br/><br/>electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." +
+					"Lorem Ipsum is simply dummy text <i> hey salut </i><br /><br /> of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, <i>but also the leap into electronic typesetting</i>, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." +
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. <br/><br/>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." +
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the <b>leap into electronic typesetting, remaining essentially</b> unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+				
+				p.addPage();
+				
+				//p.writeFlashHtmlText( 8, buf );
+				
+				p.addPage();
+				
+				p.addMultiCell(200, 8, "It is a (long established fact that a reader will be distracted by the readable content of a page) when looking at its layout.");
+				
+				p.addPage();
+				p.addBookmark("Page 3", 0, 0, new RGBColor ( 0x990000 ) );
+				p.addBookmark("Page 3", 1, 0, new RGBColor ( 0x000000 ) );
+
+				p.addPage();
+				
+				p.addLink( 40, 40, 20, 20, new InternalLink ( 4, 0 ) );
+				
+				p.lineStyle( new RGBColor ( 0x990000 ) );
+				p.beginFill( new RGBColor ( 0x887711 ) );
+				p.drawRect( new Rectangle ( 10, 10, 40, 40 ) );
+				
+				p.textStyle( new RGBColor ( 0x000000) );
+				p.writeText(8, "hey salut");
+				
+				p.addLink(10, 10, 25, 25, link);
+
+				p.addPage();
+				
+				p.addImage( this, new Resize ( Mode.FIT_TO_PAGE, Position.CENTERED ) );
+				
+				var sc:SpotColor = new SpotColor ("PANTONE 280 CV", new CMYKColor ( 90, 20, 30, 10 ) );
+				p.lineStyle( sc );
+				p.drawRect( new Rectangle ( 10, 10, 30, 30 ) );
+				
+				p.addPage();
+				
+				p.textStyle( new RGBColor(0x990000), 1 );
+				p.lineStyle( new RGBColor ( 0x990000 ), 0 );
+				p.addCell(100, 10, "Bônjõûr Monsïeúr", 1, 2, Align.CENTER);
+				p.addCell(100, 10, "Bônjõûr Monsïeúr", 1, 2, Align.CENTER);
+				
+				p.addPage();
+				
+				p.lineStyle ( new RGBColor ( 0x998800 ), 0 );
+				p.moveTo ( 10, 20 );
+				p.lineTo ( 40, 30 );
+				p.end();
+				
+				p.drawCircle( 20, 20, 40 );
+				
+				p.addPage();
+				
+				var image:ByteArray = new imageBigStream() as ByteArray;
+				
+				p.addImageStream( image, ColorSpace.DEVICE_RGB, new Resize ( Mode.RESIZE_PAGE, Position.CENTERED ) );
+				
+				p.addPage();
+				
+				p.addPage();
+				
+				p.addImageStream( image, ColorSpace.DEVICE_RGB, new Resize ( Mode.FIT_TO_PAGE, Position.CENTERED ) );
+				
+				p.addPage();
+				
+				var hyperlink:HTTPLink = new HTTPLink("http://www.google.fr");
+				
+				p.addLink( 10 , 10, 100, 100, hyperlink );
+				
+				p.addPage();
+				
+				// create columns to specify the column order
+				var gridColumnAge:GridColumn = new GridColumn("City", "city", 30, Align.LEFT, Align.LEFT);
+				var gridColumnEmail:GridColumn = new GridColumn("E-Mail", "email", 40, Align.LEFT, Align.LEFT);
+				var gridColumnFirstName:GridColumn = new GridColumn("First Name", "firstName", 40, Align.LEFT, Align.LEFT);
+				var gridColumnLastName:GridColumn = new GridColumn("Last Name", "lastName", 45, Align.LEFT, Align.LEFT);
+				
+				// create a columns Array
+				// it determines the order shown in the PDF
+				var columns:Array = new Array ( gridColumnAge, gridColumnEmail, gridColumnFirstName, gridColumnLastName );
+				
+				// create a Grid object as usual
+				var grid:Grid = new Grid( dp.toArray(), 200, 120, new RGBColor ( 0xCCCCCC ), new RGBColor (0xCCCCCC),
+                        true, new RGBColor(0x887711), new RGBColor(0x887711), 0.1, 5, 5, "0 j", columns );
+				
+				// pass the columns
+				//grid.columns = columns;
+				
+				p.addGrid( grid );
+				
+				trace( p );
+				
+				trace( grid );
+				
+				p.addPage();
+				
+				// create a text annotation
+				var annotation:Annotation = new TextAnnotation ( AnnotationType.TEXT, "hey there!", 20, 20, 100, 100 );
+				
+				// add it to the current page
+				p.addAnnotation( annotation );
+			
+	            var f:FileStream = new FileStream();
+		  	    file = File.desktopDirectory.resolvePath("exported.pdf");
+		  	    f.open( file, FileMode.WRITE);
+		  	    var bytes:ByteArray = p.save( Method.LOCAL );
+		  	    f.writeBytes(bytes);
+		  	    f.close();
+            }
+			
+			private function characterMissing ( e:CharacterEvent):void
+			{
+				trace("Character missing : " + e.missingCharacter );
+			}
+			
+			private function min (a:Number, b:Number):Number
+			{
+				return ( a < b ) ? a : b;
+			}
+
+			protected function windowedapplication1_creationCompleteHandler(event:FlexEvent):void
+			{
+				
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				dp.addItem( { firstName : "Mike", lastName : "Chambers", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Lee", lastName : "Brimelow", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Kevin", lastName : "Hoyt", email : "mail@adobe.com", city : "San Francisco" } );
+				dp.addItem( { firstName : "Serge", lastName : "Jespers", email : "mail@adobe.com", city : "Belgium" } );
+				
+			}
+
+        ]]>
+    </mx:Script>
+ 
+
+	<mx:DataGrid id="dg" dataProvider="{dp}"/>
+    <mx:Button x="444" y="365" label="PDF" click="createPDF()" />
+    <mx:Label x="369" y="395" text="Result : generate.pdf on desktop" fontWeight="bold"/>
+
+
+
+</mx:WindowedApplication>

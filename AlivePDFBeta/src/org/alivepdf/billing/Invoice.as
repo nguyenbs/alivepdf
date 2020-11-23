@@ -1,7 +1,7 @@
 package org.alivepdf.billing
 {
-	import mx.formatters.DateFormatter;
-	import mx.utils.ObjectUtil;
+	import supportClasses.formatters.DateFormatter;
+	import supportClasses.utils.ObjectUtil;
 	
 	import org.alivepdf.colors.RGBColor;
 	import org.alivepdf.fonts.CoreFont;

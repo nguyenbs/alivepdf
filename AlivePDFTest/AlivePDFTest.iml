@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="Flex" version="4">
+  <component name="FlexBuildConfigurationManager" active="AlivePDFTest">
+    <configurations>
+      <configuration name="AlivePDFTest" target-platform="Desktop" main-class="AlivePDFTest" output-file="AlivePDFTest.swf" output-folder="$MODULE_DIR$/bin-debug">
+        <dependencies>
+          <entries>
+            <entry library-id="9559e1e0-9e55-4741-a5f5-ee08e70557fd">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="31e2d4c8-8d93-45e2-8e50-26aec40a960e">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="en_US" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop package-file-name="AlivePDFTest" />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="AlivePDFTestWriteFlashHtmlOnMultiplePagesWithHeaderAndFooter" main-class="AlivePDFTestWriteFlashHtmlOnMultiplePagesWithHeaderAndFooter" output-file="AlivePDFTestWriteFlashHtmlOnMultiplePagesWithHeaderAndFooter.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="32.0">
+          <entries>
+            <entry library-id="0a0c507e-b916-4d8d-8afa-55da1c8c39c8">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="dff808f7-0414-4408-a3c2-efd4a96d560e">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="en_US" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="AlivePDFTestIssue340" main-class="AlivePDFTestIssue340" output-file="AlivePDFTestIssue340.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="32.0">
+          <entries>
+            <entry library-id="50355a8b-b0cc-4a5d-a452-b2ce1d8fb6e6">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="ff726101-af3b-41d3-b9d6-fa7954a33234">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="en_US" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="AlivePDFTestWriteFlashHtml" main-class="AlivePDFTestWriteFlashHtml" output-file="AlivePDFTestWriteFlashHtml.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="32.0">
+          <entries>
+            <entry library-id="bfc12630-27cd-4e65-8679-98c264b98660">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="ff900d4e-8f21-4a56-ac74-905997ae6b0a">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="en_US" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="AlivePDFTestAddImage" target-platform="Desktop" main-class="AlivePDFTestAddImage" output-file="AlivePDFTestAddImage.swf" output-folder="$MODULE_DIR$/bin-debug">
+        <dependencies>
+          <entries>
+            <entry library-id="aee373b6-bda1-4198-bc0b-bef855ba8dd4">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="27c1f326-8cdf-4266-93d0-619a320ffc15">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="en_US" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop package-file-name="AlivePDFTestAddImage" />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="AlivePDFTestIssue338_2" main-class="AlivePDFTestIssue338_2" output-file="AlivePDFTestIssue338_2.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="32.0">
+          <entries>
+            <entry library-id="74ba2e5c-accc-4e5c-a510-3cdbcb33670e">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="5148ac8c-ee93-47ac-ada2-f80bd3eb702c">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="en_US" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+      <configuration name="AlivePDFTestIssue338" main-class="AlivePDFTestIssue338" output-file="AlivePDFTestIssue338.swf" output-folder="$MODULE_DIR$/bin-debug" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+        <dependencies target-player="32.0">
+          <entries>
+            <entry library-id="9ff54f5e-e50e-46bb-ac09-02c43676f166">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="7178d0f6-5eba-4a1d-9777-71d1f951d182">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="en_US" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+    </configurations>
+    <compiler-options />
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="AIRSDK" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="9559e1e0-9e55-4741-a5f5-ee08e70557fd" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="0a0c507e-b916-4d8d-8afa-55da1c8c39c8" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="dff808f7-0414-4408-a3c2-efd4a96d560e" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/AlivePDF/bin/AlivePDF.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="50355a8b-b0cc-4a5d-a452-b2ce1d8fb6e6" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="ff726101-af3b-41d3-b9d6-fa7954a33234" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/AlivePDF/bin/AlivePDF.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="bfc12630-27cd-4e65-8679-98c264b98660" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="ff900d4e-8f21-4a56-ac74-905997ae6b0a" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/AlivePDF/bin/AlivePDF.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="aee373b6-bda1-4198-bc0b-bef855ba8dd4" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="74ba2e5c-accc-4e5c-a510-3cdbcb33670e" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="5148ac8c-ee93-47ac-ada2-f80bd3eb702c" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/AlivePDF/bin/AlivePDF.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="9ff54f5e-e50e-46bb-ac09-02c43676f166" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="7178d0f6-5eba-4a1d-9777-71d1f951d182" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/AlivePDF/bin/AlivePDF.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="31e2d4c8-8d93-45e2-8e50-26aec40a960e" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../AlivePDFBeta/bin" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../AlivePDFBeta/src" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../AlivePDFBeta/bin" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="27c1f326-8cdf-4266-93d0-619a320ffc15" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../AlivePDFBeta/bin" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../AlivePDFBeta/src" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../AlivePDFBeta/bin" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>
