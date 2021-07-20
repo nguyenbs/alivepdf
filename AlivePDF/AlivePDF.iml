@@ -8,6 +8,7 @@
         </dependencies>
         <compiler-options>
           <map>
+            <entry key="compiler.debug.swc" value="true" />
             <entry key="compiler.locale" value="" />
           </map>
         </compiler-options>
@@ -20,8 +21,8 @@
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../AlivePDF">
-      <sourceFolder url="file://$MODULE_DIR$/../AlivePDF/src" isTestSource="false" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="AIRSDK" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />

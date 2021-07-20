@@ -104,7 +104,7 @@
 				
             	var uf:IFont = new CoreFont ( FontFamily.ARIAL );
 				
-            	var p:PDF = new PDF( Orientation.PORTRAIT, Unit.MM, Size.A4 );
+            	var p:PDF = new PDF( Orientation.PORTRAIT, Unit.MM, true, Size.A4 );
 				
 				var l:ILink = new InternalLink(2, 0);
 				

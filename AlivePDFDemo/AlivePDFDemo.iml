@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="test_apdf">
+  <component name="FlexBuildConfigurationManager" active="AlivePDFDemoApp">
     <configurations>
-      <configuration name="test_apdf" target-platform="Desktop" main-class="test_apdf" output-file="test_apdf.swf" output-folder="$MODULE_DIR$/bin-debug">
+      <configuration name="AlivePDFDemoApp" target-platform="Desktop" main-class="AlivePDFDemoApp" output-file="test_apdf.swf" output-folder="$MODULE_DIR$/bin-debug">
         <dependencies>
           <entries>
-            <entry library-id="3da1fb9a-9bbb-4f13-9602-447329d22daf">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-id="62416a53-7824-49b8-85d4-7ef09d4a060a">
+            <entry module-name="AlivePDF" build-configuration-name="AlivePDF">
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="Flex 4.16.0" />
+          <sdk name="Flex4.16.0" />
         </dependencies>
         <compiler-options>
           <map>
-            <entry key="compiler.keep-generated-actionscript" value="true" />
             <entry key="compiler.locale" value="en_US" />
           </map>
         </compiler-options>
-        <packaging-air-desktop custom-descriptor-path="$MODULE_DIR$/src/test_apdf-app.xml" package-file-name="test_apdf" />
+        <packaging-air-desktop package-file-name="test_apdf" />
         <packaging-android />
         <packaging-ios />
       </configuration>
@@ -32,31 +28,8 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Flex 4.16.0" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="Flex4.16.0" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
-      <library type="flex">
-        <properties id="3da1fb9a-9bbb-4f13-9602-447329d22daf" />
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/libs" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library type="flex">
-        <properties id="62416a53-7824-49b8-85d4-7ef09d4a060a" />
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../AlivePDFBeta/bin" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../AlivePDFBeta/src" />
-        </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../AlivePDFBeta/bin" recursive="false" />
-      </library>
-    </orderEntry>
+    <orderEntry type="module" module-name="AlivePDF" exported="" />
   </component>
 </module>

@@ -6,22 +6,23 @@ package org.alivepdf.fonts.unicodefonts
 	
 	import org.alivepdf.fonts.ICidFont;
 
+	//@TODO: Ho tro download font online
 	public class ArialUnicodeMS implements ICidFont
 	{
 		//Metrics
-		[Embed( source="arialunicid0_metrics", mimeType="application/octet-stream" )]
+		//[Embed( source="arialunicid0_metrics", mimeType="application/octet-stream" )]
 		private static var arialunicid0Metrics:Class;
 		
-		[Embed( source="uni2cid/uni2cid_ag15", mimeType="application/octet-stream" )]
+		//[Embed( source="uni2cid/uni2cid_ag15", mimeType="application/octet-stream" )]
 		private static var uni2cid_ag15:Class;
 		
-		[Embed( source="uni2cid/uni2cid_ac15", mimeType="application/octet-stream" )]
+		//[Embed( source="uni2cid/uni2cid_ac15", mimeType="application/octet-stream" )]
 		private static var uni2cid_ac15:Class;
 		
-		[Embed( source="uni2cid/uni2cid_aj16", mimeType="application/octet-stream" )]
+		//[Embed( source="uni2cid/uni2cid_aj16", mimeType="application/octet-stream" )]
 		private static var uni2cid_aj16:Class;
 		
-		[Embed( source="uni2cid/uni2cid_ak12", mimeType="application/octet-stream" )]
+		//[Embed( source="uni2cid/uni2cid_ak12", mimeType="application/octet-stream" )]
 		private static var uni2cid_ak12:Class;
 		
 		private static var _offset:int = 31;
