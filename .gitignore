@@ -1,6 +1,8 @@
 /.idea/
-/AlivePDFBeta/.settings/
+/AlivePDF/.settings/
 /AlivePDFTest/.settings/
-/AlivePDFBeta/bin/
+/AlivePDF/bin/
 /AlivePDFDemo/.settings/
 /AlivePDFDemo/bin-debug/
+/AlivePDFDemo/.idea/
+/AlivePDFTest/.settings/
